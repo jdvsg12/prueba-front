@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Simple</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- <img src="./images/image.png" width="1200px" height="600px" alt=""> -->
+    <!-- guide image -->
+
+
+    <!-- Contenido para borrar -->
+
+
+    <!-- main content -->
+    <main>
+
+        <!-- CONTAINER -->
+        <div class="card">
+            <!-- CONTENT-->
+            <div class="card__img">
+                <!-- IMAGE -->
+
+                <img src="https://raw.githubusercontent.com/MizAndhre/Stats-preview-card-component/main/images/image-header-mobile.jpg"
+                    alt="this image contains people in office - mobile" class="card__img__mobile" />
+                <img src="https://raw.githubusercontent.com/MizAndhre/Stats-preview-card-component/main/images/image-header-desktop.jpg"
+                    alt="this image contains people in office - desktop" class="card__img__desktop" />
+            </div>
+            <!-- container images for the banner -->
+
+            <!-- TITLE -->
+            <div class="card__content">
+                <h1>Get <span>insights</span> that help your business grow.</h1>
+                <!-- PARAGRAPH -->
+                <p>
+                    Discover the benefits of data analytics and make better decisions
+                    regarding revenue, customer experience, and overall efficiency.
+                </p>
+
+                <!-- container an information area -->
+
+                <!-- FEATURES -->
+                <div class="card__features">
+                    <div class="card__features__component">
+                        <h2>10k+</h2>
+                        <p>companies</p>
+                    </div>
+                    <div class="card__features__component">
+                        <h2>314</h2>
+                        <p>templates</p>
+                    </div>
+                    <div class="card__features__component">
+                        <h2>12M+</h2>
+                        <p>queries</p>
+                    </div>
+                </div>
+
+                <!-- container feature information  -->
+
+            </div>
+            <!-- container the banner informative -->
+    </main>
+
+    <!-- this container centers the container and gives the background to the page -->
+    <!-- main content -->
+    <script>
+
+        // this part of the script contains the solution of point one of the javascript problem
+
+
+        /**
+     * Checks if `value` is `null` or `undefined`.
+     *
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
+     * @example
+     *
+     * isNil(null)
+     * // => true
+     *
+     * isNil(void 0)
+     * // => true
+     *
+     * isNil(NaN)
+     * // => false
+     */
+        function isNil(value) {
+            return value == null
+        }
+        /**
+         * get pair numbers in a numbers array, if the value is   `null` or `undefined` the result will be an empty array.
+         *
+         * @param Array number
+         * @returns Array number
+         */
+
+        function getPairsFixed(array) {
+            if (isNil(array)) return []
+
+            const sanitizedArray = array.filter((number) => !isNil(number))
+            // strict equality will fail if some value is an string, that is different with weak equality (used in the code to fix)
+            return sanitizedArray.filter(a => (a % 2) === 0)
+        }
+
+        console.log(getPairsFixed([1, 2, 3, 4, 5, 3, 2, 1, 2, 3]))
+
+        // this part of the script contains the solution of point two of the javascript problem
+
+        
+        function sanitizeArray(array) {
+            if (isNil(array)) return []
+
+            return array.filter((number) => !isNil(number))
+        }
+
+        function getPairsFixed(array) {
+            const sanitizedArray = sanitizeArray(array)
+            // strict equality will fail if some value is an string, that is different with weak equality (used in the code to fix)
+            return sanitizedArray.filter(a => (a % 2) === 0)
+        }
+
+        console.log(getPairsFixed([1, 2, 3, 4, 5, 3, 2, 1, 2, 3]))
+
+
+        function isPrime(number) {
+            // base validations
+            if (number < 2) {
+                return false;
+            }
+
+            for (let iterator = 3; iterator < number; iterator++) {
+                if (number % iterator === 0) return false;
+            }
+
+            return true;
+        }
+
+        function getPrimes(array) {
+            const sanitizedArray = sanitizeArray(array)
+
+            return sanitizedArray.filter(isPrime)
+        }
+
+
+        console.log(getPrimes([1, 2, 3, 4, 5, 3, 2, 1, 2, 3]))
+        console.log(getPrimes(null))
+    </script>
+
+</body>
+
+</html>
